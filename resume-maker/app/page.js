@@ -3,17 +3,7 @@ import FormField from "../components/FormField"
 import Section from "../components/Section"
 import Doc from "../components/Doc"
 import { useState } from "react";
-// import MyDocument from "./createPdf"
 
-// import dynamic from "next/dynamic";
-
-// const PDFViewer = dynamic(
-//     () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
-//     {
-//         ssr: false,
-//         loading: () => <p>Loading...</p>,
-//     },
-// );
 
 export default function Home() {
 

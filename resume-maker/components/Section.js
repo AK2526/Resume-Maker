@@ -18,7 +18,7 @@ class Section extends React.Component {
 
 
     addForm = function(label){
-    this.state.forms.val.push({ label: label, formState: {val: ""} });
+    this.state.forms.val.push({ label: label, formState: {val: "", type:true} });
     this.setState(prevState => ({
                 forms: prevState.forms
             }), () => console.log("Added Form"));
@@ -35,6 +35,23 @@ class Section extends React.Component {
         }
     }
 
+    deleteForm = function(index) {
+        console.log("DELETEING" + index);
+        // this.state.forms.val[index-3].formState.val = "";
+        // this.state.forms.val[index-2].formState.val = "";
+        // this.state.forms.val[index-1].formState.val = "";
+        // this.state.forms.val[index-0].formState.val = "";
+        // this.state.forms.val[index-2].formState.type = false;
+        // this.state.forms.val[index-3].formState.type = false;
+        // this.state.forms.val[index-1].formState.type = false;
+        // this.state.forms.val[index-0].formState.type = false;
+        this.state.forms.val.splice(index-3, 4);
+        this.setState(prevState => ({
+            forms: prevState.forms
+        }), () => console.log("Deleted Form"));
+        this.render();
+    }
+
     render() {
         return (
             <div style={{border: '1px solid white', borderRadius: '5px'}} className='my-5 px-5'>
@@ -43,7 +60,9 @@ class Section extends React.Component {
                     {this.state.forms.val.map((form, index) => (
                         <React.Fragment key={index}>
                             <div className={`${index%4 === 0 && index > 3? "border-t-2 mt-4 pt-4": ""}`}>
-                                <FormField label={form.label} setVal={form.formState} />
+
+                                {<FormField label={form.label} setVal={form.formState} type={true} />}
+                                {index%4 === 3 && <button onClick={() => this.deleteForm(index)}>Delete Form</button>}
                             </div>
                         </React.Fragment>
                     ))}
