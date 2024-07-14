@@ -54,7 +54,7 @@ class Section extends React.Component {
 
     render() {
         return (
-            <div style={{border: '1px solid white', borderRadius: '5px'}} className='my-5 px-5'>
+            <div style={{border: '1px solid white', borderRadius: '5px'}} className=' px-5'>
                 <div className='flex flex-col my-5' >
                     <h2 className='text-3xl mb-5'>{this.state.name}</h2>
                     {this.state.forms.val.map((form, index) => (

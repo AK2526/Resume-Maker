@@ -1,13 +1,5 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
-import { title } from 'process';
-
-Font.register({
-  family: 'Oswald',
-  src: 'https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf',
-  fontStyle: 'italic',
-  fontWeight: "bold"
-});
 
 // Create styles
 const styles = StyleSheet.create({
@@ -32,12 +24,12 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 25,
-    marginTop: 10,
-    fontWeight: "bold"
+    marginTop: 5,
+    marginBottom: 2,
   },
   sectionSubtitle: {
     fontSize: 15,
-    fontStyle: "italic",
+    color: "grey",
   },
   sectionHead: {
     fontSize: 30,
@@ -101,14 +93,14 @@ const mySection = (props) => {
           // Case 3
           return (
             <View key={index}>
-              <Text >{props.data.val[index].formState.val}</Text>
+              <Text style={{marginLeft: 5}}>{" - " + props.data.val[index].formState.val}</Text>
             </View>
           );
         } else {
           // Case 4
           return (
             <View key={index}>
-              <Text >{props.data.val[index].formState.val}</Text>
+              <Text style={{color: "red"}}>{props.data.val[index].formState.val}</Text>
             </View>
           );
         }

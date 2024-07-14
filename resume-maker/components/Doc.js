@@ -27,7 +27,7 @@ class Doc extends React.Component {
         };
         this.addSection("Required")
         this.addSection("Education")
-        this.addSection("Project")
+        this.addSection("Projects")
 
 
     }
@@ -64,9 +64,10 @@ class Doc extends React.Component {
         return (
             <div className='flex flex-col'>
                 {this.state.sections.map((section, index) => (
-                    <React.Fragment key={index}>
+                    <React.Fragment  key={index}>
                         <Section name={section.name} sectionData={section.data} />
-                        <Button name="Delete Section" onClick={() => this.deleteSection(index)} />
+                        {section.name !== "Required" &&<button className=" mt-3"  onClick={() => this.deleteSection(index)} >Delete Section </button>}
+                        <p className="mb-12"/>
                     </React.Fragment>
                 ))}
                 <Popup trigger=
@@ -88,8 +89,7 @@ class Doc extends React.Component {
                         )
                     }
                 </Popup>
-                <button onClick={() => this.logData()}>CLICKK</button>
-                <button onClick={() => this.refresh()}>REFRESH</button>
+                <button className="my-10 border-white border-2 px-2 py-2 bg-gray-700" onClick={() => this.refresh()}>Refresh PDF</button>
                 {<PDFViewer showToolbar="true" className=" mt-10" style={{ width: '100%', height: '800px' }}>
                     <MyDocument data={this.state.sections} />
                 </PDFViewer>}

@@ -12,8 +12,8 @@ export default function Home() {
             <div>
                 <div className="px-4 mt-20 min-w-[100vh]">
                     <div>
-                        <h1 className="text-3xl font-bold">Dashboard</h1>
-                        <p className="text-2xl mb-10">Welcome to the dashboard</p>
+                        <h1 className="text-3xl font-bold">Resume Maker</h1>
+                        <p className="text-2xl mb-10">Build your Identity!</p>
                         <Doc/>
                     </div>
                 </div>
